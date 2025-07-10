@@ -1,0 +1,11 @@
+<view 
+  class="interaction-button {{type}} {{disabled || remainingTime > 0 ? 'disabled' : ''}} {{animating ? 'animating' : ''}}"
+  bindtap="onTap"
+>
+  <view class="button-icon">{{icons[type]}}</view>
+  <view class="button-label">{{labels[type]}}</view>
+  
+  <view class="cooldown-overlay" wx:if="{{remainingTime > 0}}">
+    <view class="cooldown-time">{{formatTime(remainingTime)}}</view>
+  </view>
+</view>

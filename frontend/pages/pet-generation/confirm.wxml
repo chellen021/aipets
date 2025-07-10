@@ -1,0 +1,81 @@
+<view class="confirm-container">
+  <view class="confirm-header">
+    <view class="header-title">确认宠物信息</view>
+    <view class="header-subtitle">为你的专属宠物起个好听的名字吧</view>
+  </view>
+
+  <view class="preview-section">
+    <view class="image-preview">
+      <image class="preview-image" src="{{imageUrl}}" mode="aspectFill"></image>
+      <view class="preview-overlay">
+        <view class="preview-text">AI正在分析中...</view>
+      </view>
+    </view>
+    
+    <button class="retake-btn" bindtap="onRetakePhoto">
+      <text class="retake-icon">📷</text>
+      <text>重新拍摄</text>
+    </button>
+  </view>
+
+  <view class="name-section">
+    <view class="section-title">宠物名称</view>
+    <view class="name-input-wrapper">
+      <input 
+        class="name-input {{nameError ? 'error' : ''}}"
+        placeholder="请输入宠物名称"
+        value="{{petName}}"
+        maxlength="10"
+        bindinput="onNameInput"
+      />
+      <button class="random-btn" bindtap="onRandomName">
+        <text class="random-icon">🎲</text>
+      </button>
+    </view>
+    <view class="name-error" wx:if="{{nameError}}">{{nameError}}</view>
+    <view class="name-tips">
+      <view class="tip-item">• 2-10个字符</view>
+      <view class="tip-item">• 支持中文、英文、数字</view>
+    </view>
+  </view>
+
+  <view class="features-preview">
+    <view class="section-title">宠物特性预览</view>
+    <view class="features-grid">
+      <view class="feature-card">
+        <view class="feature-icon">😊</view>
+        <view class="feature-name">心情</view>
+        <view class="feature-value">100%</view>
+      </view>
+      <view class="feature-card">
+        <view class="feature-icon">🍎</view>
+        <view class="feature-name">饥饿</view>
+        <view class="feature-value">100%</view>
+      </view>
+      <view class="feature-card">
+        <view class="feature-icon">🧼</view>
+        <view class="feature-name">清洁</view>
+        <view class="feature-value">100%</view>
+      </view>
+      <view class="feature-card">
+        <view class="feature-icon">❤️</view>
+        <view class="feature-name">亲密</view>
+        <view class="feature-value">0%</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-actions">
+    <button 
+      class="confirm-btn {{!petName || nameError || isGenerating ? 'disabled' : ''}}"
+      bindtap="onConfirmGenerate"
+      disabled="{{!petName || nameError || isGenerating}}"
+    >
+      <view wx:if="{{!isGenerating}}">创建宠物</view>
+      <view wx:else class="loading-content">
+        <view class="loading-spinner"></view>
+        <text>生成中...</text>
+      </view>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,105 @@
+<view class="profile-container">
+  <view class="profile-header">
+    <view class="user-avatar">
+      <image 
+        class="avatar-image" 
+        src="{{userInfo.avatarUrl || '/assets/images/default-avatar.png'}}" 
+        mode="aspectFill"
+      ></image>
+    </view>
+    <view class="user-info">
+      <view class="user-name">{{userInfo.nickName || '萌宠主人'}}</view>
+      <view class="user-level">Lv.{{level}} ({{experience}}/100)</view>
+    </view>
+  </view>
+
+  <view class="stats-section">
+    <view class="stats-grid">
+      <view class="stat-card">
+        <view class="stat-value">{{points || 0}}</view>
+        <view class="stat-label">积分</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-value">{{checkinStreak || 0}}</view>
+        <view class="stat-label">连续签到</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-value">{{userStats.totalInteractions}}</view>
+        <view class="stat-label">互动次数</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-value">{{userStats.totalPurchases}}</view>
+        <view class="stat-label">购买次数</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pet-section" wx:if="{{currentPet}}">
+    <view class="section-title">我的宠物</view>
+    <view class="pet-card">
+      <view class="pet-avatar">
+        <image 
+          class="pet-image" 
+          src="{{currentPet.avatar || '/assets/images/default-pet.png'}}" 
+          mode="aspectFill"
+        ></image>
+      </view>
+      <view class="pet-info">
+        <view class="pet-name">{{currentPet.name}}</view>
+        <view class="pet-level">Lv.{{currentPet.level}}</view>
+        <view class="pet-status">{{currentPet.statusText || '健康'}}</view>
+      </view>
+      <view class="pet-action">
+        <button class="visit-btn" bindtap="onVisitPet">
+          <text>查看</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-group">
+      <view class="menu-item" bindtap="onNavigateToOrders">
+        <view class="menu-icon">📦</view>
+        <view class="menu-text">我的订单</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="onNavigateToSettings">
+        <view class="menu-icon">⚙️</view>
+        <view class="menu-text">设置</view>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item" bindtap="onNavigateToHelp">
+        <view class="menu-icon">❓</view>
+        <view class="menu-text">帮助中心</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <view class="menu-item" bindtap="onNavigateToAbout">
+        <view class="menu-icon">ℹ️</view>
+        <view class="menu-text">关于我们</view>
+        <view class="menu-arrow">></view>
+      </view>
+      <button class="menu-item share-item" open-type="share" bindshare="onShareApp">
+        <view class="menu-icon">📤</view>
+        <view class="menu-text">分享给朋友</view>
+        <view class="menu-arrow">></view>
+      </button>
+    </view>
+
+    <view class="menu-group">
+      <view class="menu-item logout-item" bindtap="onLogout">
+        <view class="menu-icon">🚪</view>
+        <view class="menu-text">退出登录</view>
+        <view class="menu-arrow">></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="app-info">
+    <view class="app-version">萌宠伙伴 v1.0.0</view>
+    <view class="app-copyright">© 2024 AI Pets. All rights reserved.</view>
+  </view>
+</view>

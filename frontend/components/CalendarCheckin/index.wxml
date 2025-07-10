@@ -1,0 +1,33 @@
+<view class="calendar-checkin">
+  <view class="calendar-header">
+    <view class="month-nav" bindtap="prevMonth">‹</view>
+    <view class="month-title">{{currentYear}}年 {{currentMonth}}</view>
+    <view class="month-nav" bindtap="nextMonth">›</view>
+  </view>
+  
+  <view class="weekdays">
+    <view class="weekday" wx:for="{{['日', '一', '二', '三', '四', '五', '六']}}" wx:key="*this">{{item}}</view>
+  </view>
+  
+  <view class="calendar-grid">
+    <view 
+      class="calendar-day {{!item.isCurrentMonth ? 'other-month' : ''}} {{item.isToday ? 'today' : ''}} {{item.isCheckedIn ? 'checked-in' : ''}} {{item.isWeekend ? 'weekend' : ''}}"
+      wx:for="{{calendarDays}}" 
+      wx:key="dateStr"
+      data-day="{{item}}"
+      bindtap="onDayTap"
+    >
+      <view class="day-number">{{item.date}}</view>
+      <view class="checkin-indicator" wx:if="{{item.isCheckedIn}}">
+        <view class="checkin-dot"></view>
+        <view class="points-text">+{{item.points}}</view>
+      </view>
+      <view class="today-indicator" wx:if="{{item.isToday && !item.isCheckedIn}}">签到</view>
+    </view>
+  </view>
+  
+  <view class="streak-info">
+    <view class="streak-text">连续签到: {{currentStreak}} 天</view>
+    <view class="streak-tip">每日签到可获得10积分奖励</view>
+  </view>
+</view>

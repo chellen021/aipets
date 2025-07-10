@@ -1,0 +1,92 @@
+<view class="interactive-container">
+  <view class="pet-display-section">
+    <pet-display 
+      id="pet-display"
+      pet="{{currentPet}}"
+      size="large"
+      interactive="{{true}}"
+      bindpettouch="onPetTouch"
+    ></pet-display>
+    
+    <view class="pet-info-card" wx:if="{{currentPet}}">
+      <view class="pet-basic-info">
+        <view class="pet-name">{{currentPet.name}}</view>
+        <view class="pet-level">Lv.{{currentPet.level}}</view>
+      </view>
+      
+      <view class="pet-status-summary" bindtap="onToggleStatusDetail">
+        <view class="status-text">{{currentPet.statusText || '健康'}}</view>
+        <view class="status-arrow {{showStatusDetail ? 'expanded' : ''}}">▼</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="status-section" wx:if="{{showStatusDetail && currentPet}}">
+    <status-indicator 
+      status="{{currentPet}}"
+      show-labels="{{true}}"
+      compact="{{false}}"
+    ></status-indicator>
+  </view>
+
+  <view class="interaction-section">
+    <view class="section-title">与宠物互动</view>
+    <view class="interaction-grid">
+      <interaction-button 
+        type="feed"
+        cooldown="{{interactionCooldowns.feed || 0}}"
+        bindinteract="onPetInteraction"
+      ></interaction-button>
+      
+      <interaction-button 
+        type="pet"
+        cooldown="{{interactionCooldowns.pet || 0}}"
+        bindinteract="onPetInteraction"
+      ></interaction-button>
+      
+      <interaction-button 
+        type="play"
+        cooldown="{{interactionCooldowns.play || 0}}"
+        bindinteract="onPetInteraction"
+      ></interaction-button>
+      
+      <interaction-button 
+        type="clean"
+        cooldown="{{interactionCooldowns.clean || 0}}"
+        bindinteract="onPetInteraction"
+      ></interaction-button>
+      
+      <interaction-button 
+        type="train"
+        cooldown="{{interactionCooldowns.train || 0}}"
+        bindinteract="onPetInteraction"
+      ></interaction-button>
+    </view>
+  </view>
+
+  <view class="quick-actions">
+    <button class="quick-action-btn mall-btn" bindtap="onNavigateToMall">
+      <view class="action-icon">🛒</view>
+      <view class="action-text">商城</view>
+    </button>
+    
+    <button class="quick-action-btn profile-btn" bindtap="onNavigateToProfile">
+      <view class="action-icon">👤</view>
+      <view class="action-text">个人</view>
+    </button>
+  </view>
+
+  <view class="empty-state" wx:if="{{!currentPet && !isLoading}}">
+    <view class="empty-icon">🐾</view>
+    <view class="empty-title">还没有宠物</view>
+    <view class="empty-desc">快去创建你的专属宠物吧</view>
+    <button class="create-pet-btn" bindtap="onNavigateToGeneration">
+      创建宠物
+    </button>
+  </view>
+
+  <view class="loading" wx:if="{{isLoading}}">
+    <view class="loading-spinner"></view>
+    <view class="loading-text">加载中...</view>
+  </view>
+</view>

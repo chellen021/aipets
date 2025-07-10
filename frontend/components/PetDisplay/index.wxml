@@ -1,0 +1,14 @@
+<view class="pet-display {{size}}">
+  <canvas 
+    id="pet-canvas" 
+    canvas-id="pet-canvas"
+    class="pet-canvas"
+    bindtouchstart="onTouchStart"
+    disable-scroll="{{interactive}}"
+  ></canvas>
+  
+  <view class="pet-info" wx:if="{{pet || currentPet}}">
+    <view class="pet-name">{{(pet || currentPet).name}}</view>
+    <view class="pet-level">Lv.{{(pet || currentPet).level}}</view>
+  </view>
+</view>

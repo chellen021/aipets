@@ -1,0 +1,63 @@
+<view class="upload-container">
+  <view class="upload-header">
+    <view class="header-title">创建你的专属宠物</view>
+    <view class="header-subtitle">上传一张照片，AI将为你生成独特的虚拟宠物</view>
+  </view>
+
+  <view class="upload-area">
+    <view class="image-preview" wx:if="{{selectedImage}}">
+      <image class="preview-image" src="{{selectedImage}}" mode="aspectFill"></image>
+      <view class="remove-btn" bindtap="onRemoveImage">
+        <text class="remove-icon">×</text>
+      </view>
+    </view>
+
+    <view class="upload-placeholder" wx:else bindtap="onChooseImage">
+      <view class="placeholder-icon">📷</view>
+      <view class="placeholder-text">点击选择图片</view>
+      <view class="placeholder-tip">支持JPG、PNG格式，建议大小不超过5MB</view>
+    </view>
+
+    <view class="upload-actions" wx:if="{{!selectedImage}}">
+      <button class="action-btn camera-btn" bindtap="onTakePhoto">
+        <view class="btn-icon">📸</view>
+        <view class="btn-text">拍照</view>
+      </button>
+      <button class="action-btn album-btn" bindtap="onChooseFromAlbum">
+        <view class="btn-icon">🖼️</view>
+        <view class="btn-text">相册</view>
+      </button>
+    </view>
+  </view>
+
+  <view class="upload-progress" wx:if="{{isUploading}}">
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{uploadProgress}}%"></view>
+    </view>
+    <view class="progress-text">上传中... {{uploadProgress}}%</view>
+  </view>
+
+  <view class="upload-tips">
+    <view class="tip-title">💡 拍摄建议</view>
+    <view class="tip-list">
+      <view class="tip-item">• 选择光线充足的环境</view>
+      <view class="tip-item">• 确保主体清晰可见</view>
+      <view class="tip-item">• 避免过度曝光或阴影</view>
+      <view class="tip-item">• 建议使用正方形构图</view>
+    </view>
+  </view>
+
+  <view class="bottom-actions">
+    <button 
+      class="generate-btn {{!selectedImage || isUploading ? 'disabled' : ''}}"
+      bindtap="onUploadAndGenerate"
+      disabled="{{!selectedImage || isUploading}}"
+    >
+      <view wx:if="{{!isUploading}}">下一步</view>
+      <view wx:else class="loading-content">
+        <view class="loading-spinner"></view>
+        <text>处理中...</text>
+      </view>
+    </button>
+  </view>
+</view>

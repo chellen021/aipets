@@ -1,0 +1,20 @@
+<view class="status-indicator {{compact ? 'compact' : ''}}">
+  <view class="status-item" wx:for="{{['mood', 'hunger', 'cleanliness', 'affection']}}" wx:key="*this">
+    <view class="status-icon">{{statusConfig[item].icon}}</view>
+    <view class="status-content">
+      <view class="status-label" wx:if="{{showLabels}}">{{statusConfig[item].label}}</view>
+      <view class="status-bar">
+        <view class="status-progress" style="width: {{status[item]}}%; background-color: {{getStatusColor(status[item])}}"></view>
+      </view>
+      <view class="status-value">{{getStatusText(item, status[item])}}</view>
+    </view>
+  </view>
+  
+  <view class="level-info" wx:if="{{!compact}}">
+    <view class="level-text">Lv.{{status.level}}</view>
+    <view class="exp-bar">
+      <view class="exp-progress" style="width: {{status.experience}}%; background-color: #FAAD14"></view>
+    </view>
+    <view class="exp-text">{{status.experience}}/100</view>
+  </view>
+</view>

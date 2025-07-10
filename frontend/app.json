@@ -1,15 +1,66 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/auth/login",
+    "pages/pet-generation/upload",
+    "pages/pet-generation/confirm",
+    "pages/main/pet-interactive",
+    "pages/checkin/index",
+    "pages/leaderboard/index",
+    "pages/mall/index",
+    "pages/mall/productDetail",
+    "pages/profile/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#FF9966",
     "navigationBarTitleText": "萌宠伙伴",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF9966",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/main/pet-interactive",
+        "text": "我的宠物",
+        "iconPath": "assets/icons/pet.png",
+        "selectedIconPath": "assets/icons/pet-active.png"
+      },
+      {
+        "pagePath": "pages/checkin/index",
+        "text": "签到",
+        "iconPath": "assets/icons/checkin.png",
+        "selectedIconPath": "assets/icons/checkin-active.png"
+      },
+      {
+        "pagePath": "pages/leaderboard/index",
+        "text": "排行榜",
+        "iconPath": "assets/icons/leaderboard.png",
+        "selectedIconPath": "assets/icons/leaderboard-active.png"
+      },
+      {
+        "pagePath": "pages/mall/index",
+        "text": "商城",
+        "iconPath": "assets/icons/mall.png",
+        "selectedIconPath": "assets/icons/mall-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "pet-display": "/components/PetDisplay/index",
+    "interaction-button": "/components/InteractionButton/index",
+    "status-indicator": "/components/StatusIndicator/index",
+    "calendar-checkin": "/components/CalendarCheckin/index"
+  }
 }

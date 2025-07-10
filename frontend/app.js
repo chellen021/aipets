@@ -1,19 +1,50 @@
-// app.js
+import { observable, configure } from 'mobx-miniprogram'
+import { createStoreBindings } from 'mobx-miniprogram-bindings'
+import store from './store/index'
+
+configure({ enforceActions: 'never' })
+
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    this.initStore()
+    this.checkAuth()
+  },
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
+  initStore() {
+    this.store = store
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ['userInfo', 'isLoggedIn', 'currentPet'],
+      actions: ['login', 'logout', 'updateUserInfo']
     })
   },
+
+  checkAuth() {
+    const token = wx.getStorageSync('token')
+    if (token) {
+      this.store.userStore.setToken(token)
+      this.store.userStore.getUserInfo()
+    } else {
+      wx.reLaunch({
+        url: '/pages/auth/login'
+      })
+    }
+  },
+
+  onShow() {
+    if (this.store && this.store.petStore.currentPet) {
+      this.store.petStore.startStatusDecay()
+    }
+  },
+
+  onHide() {
+    if (this.store && this.store.petStore.currentPet) {
+      this.store.petStore.stopStatusDecay()
+    }
+  },
+
   globalData: {
-    userInfo: null
+    baseUrl: 'https://api.aipets.com',
+    version: '1.0.0'
   }
 })

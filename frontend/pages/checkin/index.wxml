@@ -1,0 +1,79 @@
+<view class="checkin-container">
+  <view class="checkin-header">
+    <view class="header-title">每日签到</view>
+    <view class="header-subtitle">坚持签到，获得更多积分奖励</view>
+  </view>
+
+  <view class="checkin-status">
+    <view class="status-card">
+      <view class="status-item">
+        <view class="status-value">{{totalPoints}}</view>
+        <view class="status-label">总积分</view>
+      </view>
+      <view class="status-divider"></view>
+      <view class="status-item">
+        <view class="status-value">{{checkinStreak}}</view>
+        <view class="status-label">连续签到</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="checkin-action">
+    <button 
+      class="checkin-btn {{todayCheckedIn ? 'checked' : ''}} {{isChecking ? 'loading' : ''}}"
+      bindtap="onDailyCheckin"
+      disabled="{{todayCheckedIn || isChecking}}"
+    >
+      <view wx:if="{{!isChecking && !todayCheckedIn}}" class="btn-content">
+        <view class="btn-icon">✓</view>
+        <view class="btn-text">立即签到</view>
+        <view class="btn-reward">+10积分</view>
+      </view>
+      
+      <view wx:elif="{{todayCheckedIn}}" class="btn-content checked">
+        <view class="btn-icon">✓</view>
+        <view class="btn-text">今日已签到</view>
+      </view>
+      
+      <view wx:else class="btn-loading">
+        <view class="loading-spinner"></view>
+        <view class="btn-text">签到中...</view>
+      </view>
+    </button>
+  </view>
+
+  <view class="calendar-section">
+    <calendar-checkin 
+      checkin-data="{{checkinData}}"
+      current-streak="{{checkinStreak}}"
+      bindcheckin="onCalendarCheckin"
+    ></calendar-checkin>
+  </view>
+
+  <view class="rewards-info">
+    <view class="section-title">签到奖励</view>
+    <view class="rewards-list">
+      <view class="reward-item">
+        <view class="reward-icon">📅</view>
+        <view class="reward-content">
+          <view class="reward-title">每日签到</view>
+          <view class="reward-desc">获得10积分</view>
+        </view>
+      </view>
+      <view class="reward-item">
+        <view class="reward-icon">🔥</view>
+        <view class="reward-content">
+          <view class="reward-title">连续7天</view>
+          <view class="reward-desc">额外获得20积分</view>
+        </view>
+      </view>
+      <view class="reward-item">
+        <view class="reward-icon">💎</view>
+        <view class="reward-content">
+          <view class="reward-title">连续30天</view>
+          <view class="reward-desc">额外获得100积分</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

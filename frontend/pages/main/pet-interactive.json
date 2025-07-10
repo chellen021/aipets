@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的宠物",
+  "navigationBarBackgroundColor": "#FF9966",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "pet-display": "/components/PetDisplay/index",
+    "status-indicator": "/components/StatusIndicator/index",
+    "interaction-button": "/components/InteractionButton/index"
+  }
+}

@@ -1,0 +1,60 @@
+<view class="login-container">
+  <view class="login-header">
+    <image class="app-logo" src="/assets/images/logo.png" mode="aspectFit"></image>
+    <view class="app-title">萌宠伙伴</view>
+    <view class="app-subtitle">AI智能宠物陪伴</view>
+  </view>
+
+  <view class="login-content">
+    <view class="welcome-text">
+      <view class="welcome-title">欢迎来到萌宠世界</view>
+      <view class="welcome-desc">与你的专属AI宠物开始奇妙旅程</view>
+    </view>
+
+    <view class="features">
+      <view class="feature-item">
+        <view class="feature-icon">🐾</view>
+        <view class="feature-text">AI生成专属宠物</view>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon">❤️</view>
+        <view class="feature-text">互动培养感情</view>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon">🏆</view>
+        <view class="feature-text">排行榜竞技</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="login-actions">
+    <button 
+      class="login-btn {{isLoading ? 'loading' : ''}}"
+      wx:if="{{canIUseGetUserProfile}}"
+      bindtap="onWeChatLogin"
+      disabled="{{isLoading}}"
+    >
+      <view wx:if="{{!isLoading}}" class="btn-content">
+        <image class="wechat-icon" src="/assets/icons/wechat.png"></image>
+        <text>微信登录</text>
+      </view>
+      <view wx:else class="btn-loading">
+        <view class="loading-spinner"></view>
+        <text>登录中...</text>
+      </view>
+    </button>
+    
+    <view wx:else class="unsupported-tip">
+      请升级微信版本以使用完整功能
+    </view>
+  </view>
+
+  <view class="login-footer">
+    <view class="privacy-text">
+      登录即表示同意
+      <text class="link">《用户协议》</text>
+      和
+      <text class="link">《隐私政策》</text>
+    </view>
+  </view>
+</view>

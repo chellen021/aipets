@@ -116,3 +116,6 @@ temp/
 *.njsproj
 *.sln
 *.sw?
+
+# Trae AI IDE files
+.trae/

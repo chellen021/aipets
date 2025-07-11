@@ -1,0 +1,40 @@
+/* 颜色变量 */
+:root {
+  --primary-color: #FF9966;
+  --primary-dark: #FF6B35;
+  --secondary-color: #FFF2E8;
+  --background-color: #FFF2E8;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-placeholder: #999999;
+  --border-color: #E5E5E5;
+  --success-color: #52C41A;
+  --warning-color: #FAAD14;
+  --error-color: #FF4D4F;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+/* 字体大小 */
+.text-xs { font-size: 20rpx; }
+.text-sm { font-size: 24rpx; }
+.text-base { font-size: 28rpx; }
+.text-lg { font-size: 32rpx; }
+.text-xl { font-size: 36rpx; }
+.text-2xl { font-size: 40rpx; }
+.text-3xl { font-size: 48rpx; }
+
+/* 间距 */
+.space-4 { margin: 8rpx; }
+.space-8 { margin: 16rpx; }
+.space-12 { margin: 24rpx; }
+.space-16 { margin: 32rpx; }
+.space-20 { margin: 40rpx; }
+.space-24 { margin: 48rpx; }
+
+/* 圆角 */
+.rounded-sm { border-radius: 4rpx; }
+.rounded { border-radius: 8rpx; }
+.rounded-lg { border-radius: 16rpx; }
+.rounded-xl { border-radius: 24rpx; }
+.rounded-full { border-radius: 50%; }

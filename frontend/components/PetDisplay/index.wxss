@@ -1,0 +1,56 @@
+.pet-display {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #FFF2E8 0%, #FFFFFF 100%);
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.pet-display.small {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.pet-display.medium {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.pet-display.large {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.pet-canvas {
+  width: 100%;
+  height: 80%;
+  background: transparent;
+}
+
+.pet-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pet-name {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.pet-level {
+  font-size: 20rpx;
+  color: #FF9966;
+  background: rgba(255, 153, 102, 0.1);
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+}

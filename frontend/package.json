@@ -1,0 +1,26 @@
+{
+  "name": "aipets-frontend",
+  "version": "1.0.0",
+  "description": "萌宠伙伴微信小程序前端",
+  "main": "app.js",
+  "scripts": {
+    "dev": "echo 'Please use WeChat Developer Tools to run this project'",
+    "build": "echo 'Please use WeChat Developer Tools to build this project'"
+  },
+  "dependencies": {
+    "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^1.2.1",
+    "threejs-miniprogram": "^0.0.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "pet",
+    "ai",
+    "mobx",
+    "threejs"
+  ],
+  "author": "chellen021",
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "每日签到",
+  "navigationBarBackgroundColor": "#FF9966",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "calendar-checkin": "/components/CalendarCheckin/index"
+  }
+}

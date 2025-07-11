@@ -1,19 +1,28 @@
-/**index.wxss**/
-.userinfo {
+.redirect-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #FF9966 0%, #FFF2E8 100%);
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+.loading-spinner {
+  width: 64rpx;
+  height: 64rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+  border-top: 4rpx solid #ffffff;
   border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 32rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.loading-text {
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

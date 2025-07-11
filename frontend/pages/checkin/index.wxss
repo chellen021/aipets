@@ -1,0 +1,197 @@
+.checkin-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFF2E8 0%, #FFFFFF 100%);
+  padding: 32rpx;
+}
+
+.checkin-header {
+  text-align: center;
+  margin-bottom: 48rpx;
+}
+
+.header-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.header-subtitle {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.checkin-status {
+  margin-bottom: 48rpx;
+}
+
+.status-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 48rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.status-value {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #FF9966;
+  margin-bottom: 8rpx;
+}
+
+.status-label {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.status-divider {
+  width: 2rpx;
+  height: 80rpx;
+  background: #F0F0F0;
+  margin: 0 48rpx;
+}
+
+.checkin-action {
+  margin-bottom: 48rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.checkin-btn {
+  width: 400rpx;
+  height: 120rpx;
+  background: linear-gradient(135deg, #FF9966 0%, #FF6B35 100%);
+  border: none;
+  border-radius: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12rpx 24rpx rgba(255, 153, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.checkin-btn:active {
+  transform: translateY(4rpx);
+  box-shadow: 0 8rpx 16rpx rgba(255, 153, 102, 0.4);
+}
+
+.checkin-btn.checked {
+  background: #52C41A;
+  box-shadow: 0 12rpx 24rpx rgba(82, 196, 26, 0.4);
+}
+
+.checkin-btn.loading {
+  background: #CCCCCC;
+  box-shadow: none;
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+}
+
+.btn-content.checked {
+  color: #ffffff;
+}
+
+.btn-icon {
+  font-size: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.btn-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 4rpx;
+}
+
+.btn-reward {
+  font-size: 20rpx;
+  opacity: 0.9;
+}
+
+.btn-loading {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.loading-spinner {
+  width: 32rpx;
+  height: 32rpx;
+  border: 3rpx solid rgba(255, 255, 255, 0.3);
+  border-top: 3rpx solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 16rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.calendar-section {
+  margin-bottom: 48rpx;
+}
+
+.rewards-info {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 32rpx;
+}
+
+.rewards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.reward-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background: #F8F8F8;
+  border-radius: 16rpx;
+}
+
+.reward-icon {
+  font-size: 40rpx;
+  margin-right: 24rpx;
+}
+
+.reward-content {
+  flex: 1;
+}
+
+.reward-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.reward-desc {
+  font-size: 24rpx;
+  color: #666666;
+}

@@ -117,5 +117,5 @@ temp/
 *.sln
 *.sw?
 
-# Trae AI IDE files
+# Trae IDE files
 .trae/
